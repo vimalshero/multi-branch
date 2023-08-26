@@ -21,7 +21,7 @@ pipeline {
         stage('Docker Build Images') {
             steps {
                 script {
-                    sh 'docker build -t vimal2601/multi:v3'
+                    sh 'docker build -t vimal2601/multi:v3 .'
                     sh 'docker images'
                 }
             }
