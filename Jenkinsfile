@@ -21,7 +21,7 @@ pipeline {
         stage('Docker Build Images') {
             steps {
                 script {
-                    sh 'docker build -t vimal2601/multi:v3 .'
+                    sh 'docker build -t vimalshero/multi:v3 .'
                     sh 'docker images'
                 }
             }
@@ -31,9 +31,8 @@ pipeline {
                 script {
                     withCredentials([string(credentialsId: 'dockerPass', variable: 'dockerPassword')]) {
                         sh "docker login -u vimalshero -p ${dockerPassword}"
-                        sh 'docker tag  vimal2601/multi:v3'
-                        sh 'docker push vimal2601/multi:v3'
-                        sh 'docker rmi vimal2601/multi:v3'
+                        sh 'docker push vimalshero/multi:v3'
+                        sh 'docker rmi vimalshero/multi:v3'
                     }
                 }
             }
