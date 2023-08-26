@@ -31,6 +31,7 @@ pipeline {
                 script {
                     withCredentials([string(credentialsId: 'dockerPass', variable: 'dockerPassword')]) {
                         sh "docker login -u vimalshero -p ${dockerPassword}"
+                        sh 'docker tag  vimal2601/multi:v3'
                         sh 'docker push vimal2601/multi:v3'
                         sh 'docker rmi vimal2601/multi:v3'
                     }
